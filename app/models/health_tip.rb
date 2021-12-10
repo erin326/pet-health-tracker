@@ -1,0 +1,3 @@
+class HealthTip < ApplicationRecord
+
+end
