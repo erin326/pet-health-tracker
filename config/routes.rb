@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     # post "/login", to: "sessions#create"
     # resources :pets, only: [:index, :create]
     resources :health_tips, only: [:index]
+    post '/signup', to: 'users#create'
+    get '/me', to: 'users#show'
+    
+    post '/login', to: 'sessions#create'
+
   end
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
