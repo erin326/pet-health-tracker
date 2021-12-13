@@ -3,6 +3,7 @@ import {  Routes, Route } from 'react-router-dom';
 import NavBar from './NavBar';
 import HomePage from '../pages/HomePage';
 import Login from '../pages/Login';
+import NewPet from '../pages/NewPet';
 // import HealthTips from './HealthTips';
 // import PetList from './PetList';
 
@@ -28,6 +29,8 @@ function App() {
         <NavBar user={user} setUser={setUser}/>
         <main>
           <Routes>
+            <Route exact path='/new' element={<NewPet user={user}/>}>
+            </Route>
             <Route exact path='/' element={<HomePage/>}>
             </Route>
           </Routes>

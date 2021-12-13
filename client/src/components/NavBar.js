@@ -20,6 +20,11 @@ function NavBar({user, setUser}) {
         <nav>
             <button onClick={handleLogout}>Logout</button>
         </nav>
+        <nav>
+            <button>
+                <Link to='/new'>NewPet</Link>
+            </button>
+        </nav>
         
         </>
     )

@@ -6,7 +6,7 @@ function HomePage() {
     return (
         <>
         <HealthTips/>
-        {/* <PetList /> */}
+        <PetList />
         </>
     )
 }

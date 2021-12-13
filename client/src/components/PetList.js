@@ -1,15 +1,35 @@
-// import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+import PetCard from './PetCard';
 
 function PetList() {
 
-    // useEffect(() => {
-    //     fetch()
+    const [pets, setPets] = useState([]);
 
-    // }, []);
+
+    useEffect(() => {
+        fetch('/api/pets')
+        .then((r) => r.json())
+        .then(setPets)
+
+    }, []);
 
 
     return (
         <>
+        {pets.length > 0 ? (
+            pets.map((pet) => (
+                <PetCard key={pet.id} id={pet.id} name={pet.name} weight={pet.weight} type={pet.type} sex={pet.sex} age={pet.age} imageUrl={pet.imageUrl} healthIssue={pet.healthIssue} />
+            ))
+        ) : (
+            <>
+            <h2>No Pets Found</h2>
+            <button>
+                <Link to='/new'> Add a pet
+                </Link>
+            </button>
+            </>
+        )}
 
         </>
     )

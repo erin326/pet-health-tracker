@@ -19,7 +19,7 @@ function HealthTips() {
 
     return (
         <>
-        <Container class='body'>
+        <Container className='body'>
         <h2>Health Tips for Your Furry Friend</h2>
         <h4>
         {randomTip}

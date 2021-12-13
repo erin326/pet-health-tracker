@@ -2,13 +2,30 @@ class Api::PetsController < ApplicationController
 
 
     def index 
-        render json: Pet.all
+        user = User.find_by(id: session[:user_id])
+
+        if user 
+            render json: user.pets, include: :user
+        else
+            render json: {errors: ["Not authorized"]}, status: :unauthorized
+        end
+      
     end
 
     def create 
-        pet = Pet.create(pet_params)
+        user = User.find_by(id: session[:user_id])
 
-        render json: pet, status: :created
+        if user 
+            pet = Pet.create(pet_params)
+            user.pets << pet
+            if pet.valid?
+                render json: pet, include: :user, status: :created
+            else
+                render json: {errors: pet.errors.full_messages}, status: :unprocessable_entity
+            end
+        else
+            render json: {errors: ["Not authorized"]}, status: :unauthorized
+        end
     end
 
     private  
