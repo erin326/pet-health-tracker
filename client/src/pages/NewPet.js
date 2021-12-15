@@ -113,7 +113,7 @@ function NewPet({user}) {
             <Card.Content>
 
                 <Card.Header>{name}</Card.Header>
-                <Image className='pet-image' src={petImage}></Image>
+                <Image className='pet-image'  src={petImage}></Image>
                 <Card.Description>{age} year old {type} with {healthIssue}. Weighs {weight} lbs. Belongs to {user.username}</Card.Description>
             </Card.Content>
         </Card>

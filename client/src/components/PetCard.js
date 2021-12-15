@@ -1,15 +1,12 @@
 import {Card, Image } from 'semantic-ui-react';
 
 
-function PetCard({id, name, age, weight, sex, healthIssue, type, petImage }) {
+function PetCard({id, name, age, weight, sex, healthIssue, type, petImage, onDeletePet }) {
 
-    function handleDeletePet() {
-        fetch(`/api/pets/${id}`, {
-           method: "DELETE"
-        })
+// make an edit form
+// update pet on click 
 
-    }
-
+ 
     return(
         <>
         <Card>
@@ -32,7 +29,7 @@ function PetCard({id, name, age, weight, sex, healthIssue, type, petImage }) {
                        <span>Health issues: {healthIssue}</span>
                        <br></br>
                        <span><button id='delete-pet' 
-                onClick={handleDeletePet}
+                onClick={() => onDeletePet(id)}
                 
                 >Delete</button>
                 </span>

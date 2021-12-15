@@ -14,12 +14,26 @@ function PetList() {
 
     }, []);
 
+    function handleDeletePet(id) {
+
+        const updatedPets = pets.filter((pet) => pet.id  !== id);
+
+        fetch(`/api/pets/${id}`, {
+           method: "DELETE"
+        });
+        setPets(updatedPets);
+
+    }
+
+    
+
 
     return (
         <>
         {pets.length > 0 ? (
             pets.map((pet) => (
-                <PetCard key={pet.id} id={pet.id} name={pet.name} weight={pet.weight} type={pet.type_of_pet} sex={pet.sex} age={pet.age} petImage={pet.pet_image} healthIssue={pet.health_issues} />
+                <PetCard key={pet.id} id={pet.id} name={pet.name} weight={pet.weight} type={pet.type_of_pet} sex={pet.sex} age={pet.age} petImage={pet.pet_image} healthIssue={pet.health_issues}
+                onDeletePet={handleDeletePet} />
             ))
         ) : (
             <>
