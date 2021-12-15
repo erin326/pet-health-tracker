@@ -1,59 +1,52 @@
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import {Card } from 'semantic-ui-react';
+import {Card, Image } from 'semantic-ui-react';
 
 function NewPet({user}) {
 
-    // const [formData, setFormData] = useState({
-    //     name: '',
-    //     type: '',
-    //     sex: '',
-    //     age: '',
-    //     weight: '',
-    //     healthIssues: '',
-    //     imageUrl: ''
-    // });
     const [name, setName] = useState('');
     const [type, setType] = useState('');
     const [age, setAge] = useState('');
     const [sex, setSex] = useState('');
     const [weight, setWeight] = useState('');
     const [healthIssue, setHealthIssue] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+    const [petImage, setPetImage] = useState(null)
+    
+   
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
+
+
+
+
     function handleSubmitPet(e) {
         e.preventDefault();
+
+        const formData = new FormData();
+       
+        formData.append('name', name)
+        formData.append('age', age)
+        formData.append('weight', weight)
+        formData.append('sex', sex)
+        formData.append('type_of_pet', type)
+        formData.append('health_issues', healthIssue)
+        formData.append('pet_image', petImage)
+    
         fetch('/api/pets', {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name,
-                type_of_pet: type,
-                sex,
-                age,
-                weight,
-                health_issues: healthIssue,
-                image_url: imageUrl
-            }),
-        }).then((r) => {
+     
+            body: formData
+            })
+        .then((r) => {
             if(r.ok) {
                navigate('/');
             }else {
                 r.json().then((error)=> {
-                    console.log(error)
+                    setErrors(error)
                 });
             }
         });
-    }
-    
-    const [file, setFile] = useState(null);
-
-    function handleFileChange(e) {
-        setFile(e.target.files[0])
     }
 
     return(
@@ -102,6 +95,12 @@ function NewPet({user}) {
             value={healthIssue}
             onChange={(e) => setHealthIssue( e.target.value)}
             ></input>
+
+            <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setPetImage(e.target.files[0])}
+            ></input>
               
             <button type='submit'>Submit</button>
             <p>{errors.map((error) => (
@@ -109,20 +108,12 @@ function NewPet({user}) {
             ))}
                 </p>
         </form>
-        <form onSubmit={submitPhoto}>
-        <label>Input Image</label>
-            <input
-            type="file"
-            id="pet-image-input"
-            accept={"image/png, image/jpeg"}
-            // value="Upload"
-            // onChange={handleFileChange}
-            ></input>
-
-        </form>
-        <Card>
+    
+        <Card className='cards'>
             <Card.Content>
+
                 <Card.Header>{name}</Card.Header>
+                <Image className='pet-image' src={petImage}></Image>
                 <Card.Description>{age} year old {type} with {healthIssue}. Weighs {weight} lbs. Belongs to {user.username}</Card.Description>
             </Card.Content>
         </Card>
@@ -133,3 +124,4 @@ function NewPet({user}) {
 }
 
 export default NewPet;
+

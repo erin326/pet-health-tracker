@@ -19,7 +19,7 @@ function PetList() {
         <>
         {pets.length > 0 ? (
             pets.map((pet) => (
-                <PetCard key={pet.id} id={pet.id} name={pet.name} weight={pet.weight} type={pet.type} sex={pet.sex} age={pet.age} imageUrl={pet.imageUrl} healthIssue={pet.healthIssue} />
+                <PetCard key={pet.id} id={pet.id} name={pet.name} weight={pet.weight} type={pet.type_of_pet} sex={pet.sex} age={pet.age} petImage={pet.pet_image} healthIssue={pet.health_issues} />
             ))
         ) : (
             <>

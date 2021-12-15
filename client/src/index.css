@@ -5,10 +5,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-left: 50px
+  margin-left: 50px;
+  margin-bottom: 50px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.cards {
+  width: 400px;
+  height: 400px;
+}
+
+.pet-image {
+  max-width: 50%;
+  height: auto;
+}
+
