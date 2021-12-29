@@ -5,8 +5,9 @@ class PetSerializer < ActiveModel::Serializer
   has_one :user
 
   def pet_image
-    rails_blob_path(object.pet_image, only_path: true) if object.pet_image.attached? 
-
+    if object.pet_image.attached? 
+      rails_blob_url(object.pet_image, only_path: true) 
+    end
   end
 
 end

@@ -20,7 +20,7 @@ class Api::PetsController < ApplicationController
             pet = Pet.create(pet_params)
             user.pets << pet
             if pet.valid?
-                render json: pet,serializer: PetSerializer, include: :user, status: :created
+                render json: pet, serializer: PetSerializer, include: :user, status: :created
             else
                 render json: {errors: pet.errors.full_messages}, status: :unprocessable_entity
             end
@@ -37,9 +37,15 @@ class Api::PetsController < ApplicationController
 
     end
 
+    def update 
+        pet = Pet.find(params[:id])
+        pet.update(pet_params)
+        render json: pet
+    end
+
     private  
 
     def pet_params
-        params.permit(:name, :age, :weight, :type_of_pet, :health_issues, :sex, :pet_image)
+        params.permit(:id, :name, :age, :weight, :type_of_pet, :health_issues, :sex, :pet_image)
     end
 end 

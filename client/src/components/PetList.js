@@ -1,18 +1,26 @@
 import {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+// import EditPet from './EditPet';
+// import EditPet from './EditPet';
 import PetCard from './PetCard';
 
-function PetList() {
+function PetList({pets, selectPet, setPets }) {
 
-    const [pets, setPets] = useState([]);
+    // const [pets, setPets] = useState([]);
+    
+    // const [selectedPet, setSelectedPet] = useState({});
+    
+    // function selectPet(petObj) {
+    //     setSelectedPet(petObj)
+    // }
 
 
-    useEffect(() => {
-        fetch('/api/pets')
-        .then((r) => r.json())
-        .then(setPets)
+    // useEffect(() => {
+    //     fetch('/api/pets')
+    //     .then((r) => r.json())
+    //     .then(setPets)
 
-    }, []);
+    // }, []);
 
     function handleDeletePet(id) {
 
@@ -22,18 +30,46 @@ function PetList() {
            method: "DELETE"
         });
         setPets(updatedPets);
-
     }
 
-    
+
+    function handleUpdate(updatedPet) {
+
+        const updatedPets = pets.map((pet) => {
+            return pet.id === updatedPet.id ? updatedPet : pet
+        })
+        setPets(updatedPets);
+        // setPets((pets) => 
+        //     pets.map((pet) => {
+            
+        //         return pet.id === updatedPet.id ? updatedPet : pet;
+        //     })
+        //  );
+        // fetch(`/api/pets/${id}`, {
+        //   method: "PATCH",
+        //   body: JSON.stringify({
+        //     name,
+        //     sex,
+        //     type_of_pet: type,
+        //     age,
+        //     weight,
+        //     health_issues: healthIssue,
+        //     pet_image: petImage
+        //   })
+        // })
+    }
 
 
     return (
         <>
         {pets.length > 0 ? (
             pets.map((pet) => (
-                <PetCard key={pet.id} id={pet.id} name={pet.name} weight={pet.weight} type={pet.type_of_pet} sex={pet.sex} age={pet.age} petImage={pet.pet_image} healthIssue={pet.health_issues}
-                onDeletePet={handleDeletePet} />
+                <PetCard key={pet.id} 
+              
+                pet={pet}
+                selectPet={selectPet}
+                onDeletePet={handleDeletePet} 
+                onUpdatePet={handleUpdate}/>
             ))
         ) : (
             <>
@@ -42,6 +78,7 @@ function PetList() {
                 <Link to='/new'> Add a pet
                 </Link>
             </button>
+          
             </>
         )}
 

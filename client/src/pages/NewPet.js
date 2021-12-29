@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Card, Image } from 'semantic-ui-react';
+import EditPet from '../components/EditPet';
 
-function NewPet({user}) {
+function NewPet(
+     {user,
+    //  name, type, age, sex, weight, healthIssue, petImage,
+    //   setAge, setHealthIssue, setName, setPetImage, setSex, setType, setWeight
+    }
+    ) {
 
     const [name, setName] = useState('');
     const [type, setType] = useState('');
@@ -15,9 +21,6 @@ function NewPet({user}) {
    
     const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
-
-
-
 
 
     function handleSubmitPet(e) {
@@ -35,6 +38,9 @@ function NewPet({user}) {
     
         fetch('/api/pets', {
             method: "POST",
+            // headers: {
+            //     'Content-Type' : 'multipart/form-data',
+            // },
      
             body: formData
             })
@@ -43,7 +49,7 @@ function NewPet({user}) {
                navigate('/');
             }else {
                 r.json().then((error)=> {
-                    setErrors(error)
+                    setErrors(error.errors)
                 });
             }
         });
@@ -52,7 +58,9 @@ function NewPet({user}) {
     return(
         <>
         <h2>Add a Pet</h2>
-        <form onSubmit={handleSubmitPet}>
+        <form
+        //  encType='multipart/form-data'
+          onSubmit={handleSubmitPet}>
             <label>Name: </label>
             <input
             type="text"
@@ -116,7 +124,10 @@ function NewPet({user}) {
                 <Image className='pet-image'  src={petImage}></Image>
                 <Card.Description>{age} year old {type} with {healthIssue}. Weighs {weight} lbs. Belongs to {user.username}</Card.Description>
             </Card.Content>
+            {/* <EditPet  name={name} age={age} type={type} healthIssue={healthIssue} weight={weight} sex={sex} petImage={petImage}
+            setName={setName} setAge={setAge} setWeight={setWeight} setHealthIssue={setHealthIssue} setType={setType} setPetImage={setPetImage} setSex={setSex} /> */}
         </Card>
+
 
         
         </>
