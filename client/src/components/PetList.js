@@ -31,14 +31,15 @@ function PetList({pets, selectPet, setPets }) {
         });
         setPets(updatedPets);
     }
+    
+    
 
+    // function handleUpdate(updatedPet) {
 
-    function handleUpdate(updatedPet) {
-
-        const updatedPets = pets.map((pet) => {
-            return pet.id === updatedPet.id ? updatedPet : pet
-        })
-        setPets(updatedPets);
+    //     const updatedPets = pets.map((pet) => {
+    //         return pet.id === updatedPet.id ? updatedPet : pet
+    //     })
+    //     setPets(updatedPets);
         // setPets((pets) => 
         //     pets.map((pet) => {
             
@@ -57,7 +58,39 @@ function PetList({pets, selectPet, setPets }) {
         //     pet_image: petImage
         //   })
         // })
-    }
+    // }
+
+    
+    // function handlePetChange(petObj) {
+
+    //     fetch(`api/pets/${petObj.id}`, 
+    //     {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json" } ,
+    //         body: JSON.stringify(petObj)
+    //     })
+    //     .then((r) => {
+    //         if(r.ok) {
+    //             r.json()
+    //     .then(_ => {
+    //         const updatedPetList = [...pets].map((pet) => {
+    //             if(pet.id === petObj.id){
+    //                 return petObj
+    //             } else {
+    //                 return pet;
+    //             }
+    //         }) 
+    //         setPets(updatedPetList);
+    //         console.log(updatedPetList);
+    //     })
+    //         }else {
+    //             r.json().then((error) => console.log(error))
+    //         }
+    //     })
+    
+    //     // console.log(petObj)
+    // }
 
 
     return (
@@ -68,8 +101,10 @@ function PetList({pets, selectPet, setPets }) {
               
                 pet={pet}
                 selectPet={selectPet}
-                onDeletePet={handleDeletePet} 
-                onUpdatePet={handleUpdate}/>
+                onDeletePet={handleDeletePet}
+
+                // onUpdatePet={handlePetChange}
+                />
             ))
         ) : (
             <>

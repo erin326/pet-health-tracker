@@ -1,17 +1,65 @@
 import { useState, useEffect} from 'react'
-import {  Routes, Route } from 'react-router-dom';
+import {  Routes, Route, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import HomePage from '../pages/HomePage';
 import Login from '../pages/Login';
 import NewPet from '../pages/NewPet';
 import EditPet from './EditPet';
+import PetCard from './PetCard';
 // import HealthTips from './HealthTips';
 // import PetList from './PetList';
 
 function App() {
 
    const [user, setUser] = useState(null);
+   
+   const [pets, setPets] = useState([]);
+    
+   const [selectedPet, setSelectedPet] = useState({});
+   const [errors, setErrors] = useState([]);
 
+   const navigate = useNavigate();
+  
+    
+ 
+   function selectPet(petObj) {
+    setSelectedPet(petObj)
+    console.log(petObj)
+}
+
+  function handlePetChange(petObj) {
+
+  fetch(`/api/pets/${petObj.id}`, 
+  {
+      method: "PATCH",
+      headers: {
+          "Content-Type": "application/json" } ,
+      body: JSON.stringify(petObj)
+  })
+  .then((r) => {
+      if(r.ok) {
+          r.json()
+  .then(_ => {
+      const updatedPetList = [...pets].map((pet) => {
+          if(pet.id === petObj.id){
+              return petObj
+          } else {
+              return pet;
+          }
+      }) 
+      setPets(updatedPetList);
+      navigate('/');
+
+      console.log(updatedPetList);
+  })
+      }else {
+          r.json().then((error) => console.log(error))
+      }
+  })
+
+
+  // console.log(petObj)
+}
    
   //  const [name, setName] = useState('');
   //  const [type, setType] = useState('');
@@ -53,7 +101,8 @@ function App() {
 
             />}>
             </Route>
-            <Route exact path='/edit/:id' element={<EditPet 
+            <Route exact path='/:id' element={<PetCard />}></Route>
+            <Route exact path='/edit/:id' element={<EditPet selectPet={selectPet} selectedPet={selectedPet} setSelectedPet={setSelectedPet} onPetChange={handlePetChange}
             // name={name} setName={setName} 
             // type={type} setType={setType} 
             // age={age} setAge={setAge}
@@ -64,7 +113,7 @@ function App() {
             />}
             ></Route>
             
-            <Route exact path='/' element={<HomePage/>}>
+            <Route exact path='/' element={<HomePage  selectPet={selectPet} pets={pets} setPets={setPets}/>}>
             </Route>
          
           </Routes>

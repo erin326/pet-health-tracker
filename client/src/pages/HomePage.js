@@ -3,17 +3,17 @@ import HealthTips from '../components/HealthTips';
 import {useState, useEffect} from 'react';
 import EditPet from '../components/EditPet';
 
-function HomePage() {
+function HomePage({selectPet, selectedPet, setSelectedPet, pets, setPets}) {
 
-    const [pets, setPets] = useState([]);
+    // const [pets, setPets] = useState([]);
     
-    const [selectedPet, setSelectedPet] = useState({});
-    const [errors, setErrors] = useState([]);
+    // const [selectedPet, setSelectedPet] = useState({});
+    // const [errors, setErrors] = useState([]);
      
-    function selectPet(petObj) {
-        setSelectedPet(petObj)
-        console.log(petObj)
-    }
+    // function selectPet(petObj) {
+    //     setSelectedPet(petObj)
+    //     console.log(petObj)
+    // }
 
 
     useEffect(() => {
@@ -23,36 +23,36 @@ function HomePage() {
 
     }, []);
 
-    function handlePetChange(petObj) {
+    // function handlePetChange(petObj) {
 
-        fetch(`api/pets/${petObj.id}`, 
-        {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json" } ,
-            body: JSON.stringify(petObj)
-        })
-        .then((r) => {
-            if(r.ok) {
-                r.json()
-        .then(_ => {
-            const updatedPetList = [...pets].map((pet) => {
-                if(pet.id === petObj.id){
-                    return petObj
-                } else {
-                    return pet;
-                }
-            }) 
-            setPets(updatedPetList);
-            console.log(updatedPetList);
-        })
-            }else {
-                r.json().then((error) => console.log(error))
-            }
-        })
+    //     fetch(`api/pets/${petObj.id}`, 
+    //     {
+    //         method: "PATCH",
+    //         headers: {
+    //             "Content-Type": "application/json" } ,
+    //         body: JSON.stringify(petObj)
+    //     })
+    //     .then((r) => {
+    //         if(r.ok) {
+    //             r.json()
+    //     .then(_ => {
+    //         const updatedPetList = [...pets].map((pet) => {
+    //             if(pet.id === petObj.id){
+    //                 return petObj
+    //             } else {
+    //                 return pet;
+    //             }
+    //         }) 
+    //         setPets(updatedPetList);
+    //         console.log(updatedPetList);
+    //     })
+    //         }else {
+    //             r.json().then((error) => console.log(error))
+    //         }
+    //     })
     
-        // console.log(petObj)
-    }
+    //     // console.log(petObj)
+    // }
 
     // function handleImageChange(obj) {
     //     fetch(`api/pets/${obj.id}`,  {
@@ -78,7 +78,7 @@ function HomePage() {
         <>
         <HealthTips/>
         <PetList pets={pets} setPets={setPets} selectPet={selectPet}/>
-        <EditPet handlePetChange={handlePetChange} selectedPet={selectedPet} errors={errors}/>
+        {/* <EditPet handlePetChange={handlePetChange} selectedPet={selectedPet} errors={errors}/> */}
         </>
     )
 }

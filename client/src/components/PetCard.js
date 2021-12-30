@@ -55,8 +55,11 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
     //     });
     // }
 
-   
+   function showThisPet() {
+       fetch(`/api/pets/${id}`)
+   }
  
+
     return( 
         <>
         <Card>
@@ -78,8 +81,14 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                        <br></br>
                        <span>Health issues: {healthIssue}</span>
                        <br></br>
-                       <button onClick={() => selectPet(pet)}>Edit</button>
-                        {/* <Link to={'/edit/'+ id}>Edit</Link> */}
+                       <button onClick={showThisPet}>View Pet </button>
+                       {/* <button >
+                           <Link to={`edit/${id}`}></Link>
+                           Edit</button> */}
+                        <button onClick={() => selectPet(pet)}>
+                        <Link to={'/edit/'+ id}>Edit</Link>
+                        </button>
+                           
                        <button id='delete-pet' 
                         onClick={() => onDeletePet(id)}
                         >Delete</button>

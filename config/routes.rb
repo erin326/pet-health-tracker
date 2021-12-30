@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     # post "/login", to: "sessions#create"
     # resources :pets, only: [:index, :create]
     resources :health_tips, only: [:index]
-    resources :pets, only: [:index, :create, :destroy, :update]
+    resources :pets, only: [:index, :create, :destroy, :update, :show]
     post '/signup', to: 'users#create'
     get '/me', to: 'users#show'
 

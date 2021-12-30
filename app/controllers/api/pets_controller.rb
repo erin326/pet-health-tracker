@@ -29,6 +29,11 @@ class Api::PetsController < ApplicationController
         end
     end
 
+    def show 
+        pet = Pet.find(params[:id])
+        render json: pet 
+    end
+
     def destroy
         pet = Pet.find(params[:id])
 

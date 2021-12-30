@@ -1,8 +1,9 @@
-import { useState, useForm, useEffect } from "react";
+import { useState, useEffect } from "react";
+import PetCard from "./PetCard";
 // import {withRouter} from 'react-router-dom'
 
 function EditPet(
-  {user, selectedPet, handlePetChange, errors, handleImageChange
+  {user, selectedPet, onPetChange, errors, handleImageChange
     //  id,
     //  name, type, age, sex, weight, healthIssue, petImage, setAge, setHealthIssue, setName, setPetImage, setSex, setType, setWeight
     }) {
@@ -46,7 +47,9 @@ function EditPet(
         
         // pet_image: petImage
       }
-      handlePetChange(updatedPet)
+
+      onPetChange(updatedPet)
+      
       // handlePetChange()
     }
 
@@ -65,6 +68,8 @@ function EditPet(
     // const healthIssue = pet.health_issues
     return(
         <>
+        
+        
         <form 
         // encType="multipart/form-data"
          onSubmit={handleSubmit}>
@@ -114,11 +119,12 @@ function EditPet(
          
               
             <button type='submit'>Submit</button>
-            <p>{errors.map((error) => (
+            {/* <p>{errors.map((error) => (
                 <li>{error}</li>
             ))}
-                </p>
+                </p> */}
         </form>
+
         {/* <form onSubmit={handleImageChange}>
         <input
             type="file"
