@@ -5,11 +5,15 @@ Rails.application.routes.draw do
     # resources :pets, only: [:index, :create]
     resources :health_tips, only: [:index]
     resources :pets, only: [:index, :create, :destroy, :update, :show]
+    resources :health_logs, only: [:show]
+    resources :events, only: [:create, :show]
     post '/signup', to: 'users#create'
     get '/me', to: 'users#show'
 
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+
+
     resources :photos, only: [:update]
 
   end

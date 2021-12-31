@@ -6,6 +6,8 @@ import Login from '../pages/Login';
 import NewPet from '../pages/NewPet';
 import EditPet from './EditPet';
 import PetCard from './PetCard';
+import HealthLog from './HealthLog';
+import Event from './Event';
 // import HealthTips from './HealthTips';
 // import PetList from './PetList';
 
@@ -88,18 +90,7 @@ function App() {
         <NavBar user={user} setUser={setUser}/>
         <main>
           <Routes>
-            <Route exact path='/new' element={<NewPet user={user}
-            
-
-            //  name={name} setName={setName} 
-            //   type={type} setType={setType} 
-            //   age={age} setAge={setAge}
-            //   sex={sex} setSex={setSex} 
-            //   weight={weight} setWeight={setWeight} 
-            //   healthIssue={healthIssue} setHealthIssue={setHealthIssue} 
-            //   petImage={petImage} setPetImage={setPetImage}
-
-            />}>
+            <Route exact path='/new' element={<NewPet user={user}/>}>
             </Route>
             <Route exact path='/:id' element={<PetCard />}></Route>
             <Route exact path='/edit/:id' element={<EditPet selectPet={selectPet} selectedPet={selectedPet} setSelectedPet={setSelectedPet} onPetChange={handlePetChange}
@@ -112,7 +103,9 @@ function App() {
             // petImage={petImage} setPetImage={setPetImage}
             />}
             ></Route>
-            
+            <Route exact path='health-log/:id' element={<HealthLog pets={pets} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />}></Route>
+            <Route exact path='event/:id' element={<Event/>}>
+            </Route>
             <Route exact path='/' element={<HomePage  selectPet={selectPet} pets={pets} setPets={setPets}/>}>
             </Route>
          

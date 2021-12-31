@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Card, Image } from 'semantic-ui-react';
-import EditPet from './EditPet';
 import {Link} from 'react-router-dom'
+import HealthLog from './HealthLog';
 
 function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
 
@@ -14,7 +14,7 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
     const healthIssue = pet.health_issues
     const type = pet.type_of_pet
 
-    const [showEditForm, setShowEditForm] = useState(false)
+    const [showLog, setShowLog] = useState(false)
 
     // function handlePetUpdate(e) {
 
@@ -55,10 +55,16 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
     //     });
     // }
 
-   function showThisPet() {
+   function showThisPet(id) {
        fetch(`/api/pets/${id}`)
+       .then((r) => r.json())
+       .then((pet) => {
+           console.log(pet)
+        //    setShowLog(true)
+       })   
    }
- 
+
+  
 
     return( 
         <>
@@ -81,10 +87,10 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                        <br></br>
                        <span>Health issues: {healthIssue}</span>
                        <br></br>
-                       <button onClick={showThisPet}>View Pet </button>
-                       {/* <button >
-                           <Link to={`edit/${id}`}></Link>
-                           Edit</button> */}
+                       {/* <button onClick={() => showThisPet(id)}>View Log</button> */}
+                       {/* <Link to={'health-log/' + id}>View Health Log</Link> */}
+
+
                         <button onClick={() => selectPet(pet)}>
                         <Link to={'/edit/'+ id}>Edit</Link>
                         </button>
@@ -92,7 +98,11 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                        <button id='delete-pet' 
                         onClick={() => onDeletePet(id)}
                         >Delete</button>
+
+                        <button onClick={() => setShowLog(!showLog)}>show/hide log</button>
+                        {showLog ? <HealthLog /> : null}
                         </Card.Description>
+                        {/* <HealthLog /> */}
             </Card.Content>
             
         </Card>
