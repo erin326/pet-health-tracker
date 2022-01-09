@@ -38,9 +38,6 @@ function NewPet(
     
         fetch('/api/pets', {
             method: "POST",
-            // headers: {
-            //     'Content-Type' : 'multipart/form-data',
-            // },
      
             body: formData
             })
@@ -124,8 +121,7 @@ function NewPet(
                 <Image className='pet-image'  src={petImage}></Image>
                 <Card.Description>{age} year old {type} with {healthIssue}. Weighs {weight} lbs. Belongs to {user.username}</Card.Description>
             </Card.Content>
-            {/* <EditPet  name={name} age={age} type={type} healthIssue={healthIssue} weight={weight} sex={sex} petImage={petImage}
-            setName={setName} setAge={setAge} setWeight={setWeight} setHealthIssue={setHealthIssue} setType={setType} setPetImage={setPetImage} setSex={setSex} /> */}
+         
         </Card>
 
 

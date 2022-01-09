@@ -14,7 +14,7 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
     const healthIssue = pet.health_issues
     const type = pet.type_of_pet
 
-    const [showLog, setShowLog] = useState(false)
+    const [showLog, setShowLog] = useState(true)
 
     // function handlePetUpdate(e) {
 
@@ -55,14 +55,15 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
     //     });
     // }
 
-   function showThisPet(id) {
-       fetch(`/api/pets/${id}`)
-       .then((r) => r.json())
-       .then((pet) => {
-           console.log(pet)
-        //    setShowLog(true)
-       })   
-   }
+//    function showThisPet(id) {
+//        fetch(`/api/pets/${id}`)
+//        .then((r) => r.json())
+//        .then((pet) => {
+//            console.log(pet)
+//         //    setShowLog(true)
+//        })   
+//    }
+
 
   
 
@@ -91,16 +92,16 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                        {/* <Link to={'health-log/' + id}>View Health Log</Link> */}
 
 
-                        <button onClick={() => selectPet(pet)}>
-                        <Link to={'/edit/'+ id}>Edit</Link>
-                        </button>
+                        {/* <button onClick={() => selectPet(pet)}> */}
+                        <Link onClick={() => selectPet(pet)} to={'/edit/'+ id}>Edit</Link>
+                        {/* </button> */}
                            
                        <button id='delete-pet' 
                         onClick={() => onDeletePet(id)}
                         >Delete</button>
 
                         <button onClick={() => setShowLog(!showLog)}>show/hide log</button>
-                        {showLog ? <HealthLog /> : null}
+                        {showLog ? <HealthLog id={id}/> : null}
                         </Card.Description>
                         {/* <HealthLog /> */}
             </Card.Content>

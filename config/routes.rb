@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :health_tips, only: [:index]
     resources :pets, only: [:index, :create, :destroy, :update, :show]
     resources :health_logs, only: [:show]
-    resources :events, only: [:create, :show]
+    resources :events, only: [:index, :create, :show]
     post '/signup', to: 'users#create'
     get '/me', to: 'users#show'
 
