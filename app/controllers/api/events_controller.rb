@@ -7,7 +7,7 @@ class Api::EventsController < ApplicationController
     end
 
     def create
-        # pet = Pet.find_by(id: session[:id])
+        
         event = Event.create(event_params)
         
         # pet.events << event 
@@ -29,7 +29,7 @@ class Api::EventsController < ApplicationController
     private 
 
     def event_params 
-        params.permit(:text, :pet_id, :start, :end)
+        params.permit(:title, :pet_id, :start, :end)
     end
 
 end

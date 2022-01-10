@@ -31,7 +31,9 @@ class Api::PetsController < ApplicationController
 
     def show 
         pet = Pet.find(params[:id])
-        render json: pet 
+        events = pet.events 
+
+        render json: events
     end
 
     def destroy

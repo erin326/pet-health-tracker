@@ -162,7 +162,7 @@ function HealthLog({id}) {
           },
           body: JSON.stringify({
           
-              text: title,
+              title: title,
               pet_id: id,
               start: selectInfo.startStr,
               end: selectInfo.endStr
@@ -218,7 +218,7 @@ function HealthLog({id}) {
         selectMirror={true}
         select={handleDateSelect}
         events={ {
-          url: `api/events`,
+          url: `api/pets/${id}`,
           color: 'yellow',
           textColor: 'black'
         
