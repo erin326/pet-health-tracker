@@ -29,9 +29,9 @@ function PetList({pets, selectPet, setPets }) {
         ) : (
             <>
            
-           <p>
+           <h3>
                We're here to help you track any changes in your pet's behavior, to keep them happy and healthy. Just add a new pet to get started!
-           </p>
+           </h3>
           
             </>
         )}

@@ -16,8 +16,6 @@ function HomePage({selectPet, pets, setPets, user}) {
 
     return (
         <>
-       
-     
         
         <PetList pets={pets} setPets={setPets} selectPet={selectPet}/>
 

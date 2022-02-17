@@ -4,11 +4,7 @@ function HealthTipCard({text}) {
 
     return (
         <>
-         
-     
             <p>{text}</p>
-        
-    
         </>
     )
 }

@@ -10,8 +10,8 @@ function Login({ onLogin }) {
     return (
         <div className='login-page'>
            <h1 className='title'>Healthy Pets!</h1>
-           <p>Welcome to Healthy Pets! Here to provide peace of mind for you and your pet.</p> 
-           <p>Login or Sign Up to get started!</p>
+           <h3>Welcome to Healthy Pets! Here to provide some peace of mind for you and your pet.</h3> 
+           <h3>Login or Sign Up to get started!</h3>
            <br></br>
 
             {showLoginForm ? (
