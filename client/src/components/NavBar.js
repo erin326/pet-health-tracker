@@ -14,14 +14,14 @@ function NavBar({user, setUser}) {
     }
     return (
         <>
-        <h1>
-            <Link to='/'>My Pet's Health</Link>
+        <h1 className='title'>
+            <Link to='/'><h2>Healthy Pets!</h2></Link>
         </h1>
         <nav>
-            <button onClick={handleLogout}>Logout</button>
+            <button id='logout-button' onClick={handleLogout}>Logout</button>
         </nav>
         <nav>
-            <button>
+            <button id='new-pet-button'>
                 <Link to='/new'>NewPet</Link>
             </button>
         </nav>

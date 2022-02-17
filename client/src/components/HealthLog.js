@@ -7,130 +7,17 @@ import interactionPlugin from '@fullcalendar/interaction';
 import Event from './Event';
 
 
-// import "@fullcalendar/core/main.css";
-// import "@fullcalendar/daygrid/main.css";
-// import 'react-calendar/dist/Calendar.css';
-
-// function goToEventForm(){
-//     <Link to={}></Link>
-// }
-
 function HealthLog({id}) {
 
-    // const [date, setDate]  = useState(new Date());
-    // const [showEventForm, setShowEventForm] = useState(false);
 
-//     const [eventData, setEventData] = useState([]);
-//     const [text, setText] = useState('');
-//     const [startTime, setStartTime] = useState('');
-//     const [endTime, setEndTime] = useState('');
-
-//     const [currentEvents, setCurrentEvents]= useState([]);
-//     // function handleSubmitEvent(e) {
-    
-      
-//     //   fetch("api/events", {
-//     //       method: "POST",
-//     //       headers: {
-//     //           "Content-Type": "application/json"
-
-//     //       },
-//     //       body: JSON.stringify({
-//     //          text,
-//     //          pet_id: id 
-        
-            
-//     //       }),
-//     //   })
-//     //   .then((r) => r.json())
-//     //   .then((newEvent) => console.log(newEvent))
-      
-//     //   // eventData.map((ev) => {
-//     //   //   setText(ev.text)
-//     //   // });
-      
-     
-    
-//   // }
-
-//   useEffect(() => {
-//     fetch('api/events')
-//     .then((r) => r.json())
-//     .then((data) => console.log(data))
-//   }, [])
-
-//   function renderSidebarEvent(event) {
-//     return (
-//       <li key={event.id}>
-//         <b>{event.start, {year: 'numeric', month: 'short', day: 'numeric'}}</b>
-//         <i>{event.title}</i>
-//       </li>
-//     )
-//   }
-
-// const renderSidebar = () =>{
-//     return (
-//       <div className='demo-app-sidebar'>
-//         <div className='demo-app-sidebar-section'>
-//           <h2>Instructions</h2>
-//           <ul>
-//             <li>Select dates and you will be prompted to create a new event</li>
-//             <li>Drag, drop, and resize events</li>
-//             <li>Click an event to delete it</li>
-//           </ul>
-//         </div>
-//         {/* <div className='demo-app-sidebar-section'>
-//           <label>
-//             <input
-//               type='checkbox'
-//               checked={this.state.weekendsVisible}
-//               onChange={this.handleWeekendsToggle}
-//             ></input>
-//             toggle weekends
-//           </label>
-//         </div> */}
-//         <div className='demo-app-sidebar-section'>
-//           <h2>All Events ({currentEvents.length})</h2>
-//           <ul>
-//             {currentEvents.map(renderSidebarEvent)}
-//           </ul>
-//         </div>
-//       </div>
-//     )
-//   }
-
- 
-    // const handleEvents = (events) => {
-       
-    //   fetch("api/events", {
-    //     method: "POST",
-    //     headers: {
-    //         "Content-Type": "application/json"
-
-    //     },
-    //     body: JSON.stringify({
-        
-    //         text: title,
-    //         pet_id: id,
-      
-          
-    //     }),
-    // })
-    // // .then((r) => r.json())
-    // // .then((newEvent) => setCurrentEvents(newEvent.text))
-    // //  setCurrentEvents(events)
-    // }
-  
-  
-
-      const renderEventContent = (eventInfo) => {
-        return (
-          <>
-            <b>{eventInfo.timeText}</b>
-            <i>{eventInfo.event.title}</i>
-          </>
-        )
-      }
+      // const renderEventContent = (eventInfo) => {
+      //   return (
+      //     <>
+      //       <b>{eventInfo.timeText}</b>
+      //       <i>{eventInfo.event.title}</i>
+      //     </>
+      //   )
+      // }
    
    
      const handleDateSelect = (selectInfo) => {
@@ -141,7 +28,7 @@ function HealthLog({id}) {
         calendarApi.unselect() // clear date selection
     
         if (title) {
-        const newEvent = calendarApi.addEvent({
+          calendarApi.addEvent({
             // id: createEventId(),
             title,
             start: selectInfo.startStr,
@@ -151,53 +38,51 @@ function HealthLog({id}) {
           // setText(title);
           // setStartTime(start);
           // setEndTime(end);
-          console.log(title)
+          // console.log(title)
+
+          fetch("api/events", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+    
+            },
+            body: JSON.stringify({
+            
+                title: title,
+                pet_id: id,
+                start: selectInfo.startStr,
+                end: selectInfo.endStr
+               
+                // start_time: start,
+                // end_time: end
+          
+    
+            }),
+        })
+        .then((r) => r.json())
+        .then((data) => console.log(data))
+        }
+  
         }
 
-        fetch("api/events", {
-          method: "POST",
-          headers: {
-              "Content-Type": "application/json"
-  
-          },
-          body: JSON.stringify({
-          
-              title: title,
-              pet_id: id,
-              start: selectInfo.startStr,
-              end: selectInfo.endStr
-             
-              // start_time: start,
-              // end_time: end
-        
-  
-          }),
-      })
-      .then((r) => r.json())
-      .then((data) => console.log(data))
+       
+    
+
+    const handleEventClick = (clickInfo) => {
+      if(window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'?`)) {
+
+        clickInfo.event.remove();
+
+        fetch(`api/events/${clickInfo.event.id}`, 
+          {
+          method: "DELETE"
+          }
+        )
       }
-
-    //   const addEvent = () => {
-
-    //     const events = {
-    //        url: '/myfeed.php',
-    //        method: 'POST',
-    //        extraParams: {
-    //           pet_id: id,
-             
-    //        },
-    //        failure: function() {
-    //           alert('there was an error while fetching events!');
-    //        },
-    //        color: 'yellow', // a non-ajax option
-    //        textColor: 'black' // a non-ajax option
-    //     }
-        
-     
-    //  };
-    // const events = [{ title: "today's event", date: new Date() }]
+    }
     return (
         <>
+        <div id="calendar"> 
         <FullCalendar 
         initialView="timeGridWeek"
 
@@ -219,27 +104,23 @@ function HealthLog({id}) {
         select={handleDateSelect}
         events={ {
           url: `api/pets/${id}`,
-          color: 'yellow',
+          color: 'white',
           textColor: 'black'
         
         }}
-        // addEvent={}
-        // initialEvents={currentEvents}
-        // eventAdd={handleEvents}
-        // select={handleDateSelect}
-        // // eventContent={eventData}
-        // // eventAdd={handleEvents}
-        // events={'api/events'}
-
-        // events={}
+        // eventMouseEnter={'click to delete'}
+        eventClick={handleEventClick}
+    
         
-        // events={text}
-      
         
         />
+        </div>
+        
     
-        <div id="calendar"> </div>
+        
         {/* <Event />  */}
+
+      
         </>
     )
 }

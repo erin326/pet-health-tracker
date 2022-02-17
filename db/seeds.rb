@@ -11,7 +11,7 @@ HealthTip.create(text: 'Refill water')
 HealthTip.create(text: 'Cut down food intake')
 HealthTip.create(text: 'Take your pet to the vet for check-ups')
 HealthTip.create(text: "Feel cat's ears to check normal temperature")
-HealthTip.create(text: 'Take you dog for a run')
+HealthTip.create(text: 'Take your dog for a run')
 
 # kelly = User.create(username: 'kelly')
 # francis = Pet.create(name: 'francis', age:8, weight: 15, type: 'cat', health_issues: 'none');

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Card, Image } from 'semantic-ui-react';
+import {Card, Image, Icon } from 'semantic-ui-react';
 import {Link} from 'react-router-dom'
 import HealthLog from './HealthLog';
 
@@ -69,40 +69,39 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
 
     return( 
         <>
-        <Card>
+        <Card className='pet-cards'>
             <Card.Content>
-                <h3>{name}</h3>
+                <h2>{name}</h2>
                 <Image className='pet-image' src={petImage} alt="my pet"></Image>
-                <Card.Meta>
+                     <Card.Description id="pet-info">    
                     <span>
                     {sex} 
                     </span>
                     <br></br>
                     <span>{type}</span>
-                    
-                    </Card.Meta>
-                    <Card.Description>
+                   
                        <span>Age: {age}</span> 
                        <br></br>
                        <span>Weight: {weight} lbs</span>
                        <br></br>
                        <span>Health issues: {healthIssue}</span>
                        <br></br>
-                       {/* <button onClick={() => showThisPet(id)}>View Log</button> */}
-                       {/* <Link to={'health-log/' + id}>View Health Log</Link> */}
+                  
+                        <button className='pet-button'>
+                        <Link onClick={() => selectPet(pet)} to={'/edit/'+ id}>Edit Info</Link>
 
-
-                        {/* <button onClick={() => selectPet(pet)}> */}
-                        <Link onClick={() => selectPet(pet)} to={'/edit/'+ id}>Edit</Link>
-                        {/* </button> */}
+                        </button>
                            
-                       <button id='delete-pet' 
+                       <button className='pet-button' 
                         onClick={() => onDeletePet(id)}
-                        >Delete</button>
+                        >Remove</button>
 
-                        <button onClick={() => setShowLog(!showLog)}>show/hide log</button>
+                        <button
+                        className='pet-button'
+                        onClick={() => setShowLog(!showLog)}>show/hide log</button>
                         {showLog ? <HealthLog id={id}/> : null}
                         </Card.Description>
+                        
                         {/* <HealthLog /> */}
             </Card.Content>
             

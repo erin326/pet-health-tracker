@@ -106,7 +106,7 @@ function App() {
             <Route exact path='health-log/:id' element={<HealthLog pets={pets} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />}></Route>
             <Route exact path='event/:id' element={<Event/>}>
             </Route>
-            <Route exact path='/' element={<HomePage  selectPet={selectPet} pets={pets} setPets={setPets}/>}>
+            <Route exact path='/' element={<HomePage  selectPet={selectPet} pets={pets} setPets={setPets} user={user}/>}>
             </Route>
          
           </Routes>
