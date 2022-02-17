@@ -137,24 +137,24 @@ code {
   
 }
 
-#gif-container {
+/* #gif-container {
   float:left;
 
-}
+} */
 
-.giphy-embed {
+/* .giphy-embed {
 
   width: 480px;
   height: 270px;
   
-  /* text-align: horizontal; */
+  text-align: horizontal;
   padding-right: 6px;
   padding-top: 20px;
   padding-bottom: 20px;
-  /* margin-left: 4px; */
-  /* margin-top:20px;
-  margin-bottom: 20px; */
-}
+  margin-left: 4px;
+  margin-top:20px;
+  margin-bottom: 20px;
+} */
 
 /* .nav-bar {
   float:right;

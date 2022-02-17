@@ -18,12 +18,22 @@ function App() {
    const [selectedPet, setSelectedPet] = useState({});
    const [errors, setErrors] = useState([]);
    const navigate = useNavigate();
-  
+
+   useEffect(() => {
+        fetch('/api/me').then((r) => {
+            if (r.ok) {
+                r.json().then((user) => setUser(user));
+            }
+        });
+    }, []);
+
+    if (!user) return <Login  onLogin={setUser} />;
+
  
    function selectPet(petObj) {
     setSelectedPet(petObj)
     console.log(petObj)
-}
+    }
 
   function handlePetChange(petObj) {
 
@@ -38,38 +48,26 @@ function App() {
       if(r.ok) {
           r.json()
   .then(_ => {
-      const updatedPetList = [...pets].map((pet) => {
-          if(pet.id === petObj.id){
-              return petObj
-          } else {
-              return pet;
-          }
-      }) 
-      setPets(updatedPetList);
-      navigate('/');
-
-      console.log(updatedPetList);
-  })
-      }else {
-          r.json().then((error) => setErrors(error.errors))
-          
-      }
-  })
-
-}
- 
-
-   useEffect(() => {
-        fetch('/api/me').then((r) => {
-            if (r.ok) {
-                r.json().then((user) => setUser(user));
+        const updatedPetList = [...pets].map((pet) => {
+            if(pet.id === petObj.id){
+                return petObj
+            } else {
+                return pet;
             }
-        });
-    }, []);
+        }) 
+        setPets(updatedPetList);
+        navigate('/');
 
+        console.log(updatedPetList);
+    })
+        }else {
+            r.json().then((error) => setErrors(error.errors))
+            
+        }
+    })
 
-    if (!user) return <Login  onLogin={setUser} />;
-
+    }
+ 
 
   return (
     <div>
