@@ -1,21 +1,8 @@
 body {
-  /* margin: 0; */
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 20px;
   margin-top: 10px;
-
-  /* background-image: url(./images/paw-prints.png);
-  border-radius: 25px;
-  border: none;
-  background-repeat: no-repeat;
-  background-size: 500px; */
-  /* background-size: 300px; */
- 
-  /* text-align: center; */
   background: #73AD21;
- 
-
-  /* text-align: center; */
 }
 
 code {
@@ -27,35 +14,22 @@ code {
 .title :link {
   border-radius: 25px;
   border: none;
-  /* background: #73AD21; */
-  /* color: yellow; */
   text-decoration: none;
   text-align: center;
 }
 
 .title :visited {
-  /* color: yellow; */
   color: white;
 }
+
 .title {
   color: white;
   font-size: 90px;
   background-color: darkseagreen;
   text-align: center;
-  /* top: 10px; */
-  /* left:20px; */
-  /* width:800px; */
-  /* background-image: url(./images/paw-prints.png);
-  border-radius: 25px;
-  border: none;
-  height: 200px;
-  background-size: 300px; */
-
- 
 }
 
  .pet-button :link  {
-   
    text-decoration: none;
    color: white;
    background-color:#73AD21;
@@ -68,6 +42,7 @@ code {
   background-color:#73AD21;
   font-size: 22px;
  }
+
  .pet-button :visited {
    color:white;
  }
@@ -75,8 +50,8 @@ code {
  #new-pet-button :link {
    text-decoration: none;
    color: white;
-   /* background-color:mediumorchid; */
  }
+
  #new-pet-button :visited {
    color: white;
  }
@@ -86,16 +61,13 @@ code {
   top:10px;
   right:120px;
   color: white;
-  /* width: 80px; */
   text-align: center;
   font-size: 18px;
   border-radius: 25px;
   border: none;
   background: darkseagreen;
-  
   width: 110px;
   height: 50px;
-  /* color:white; */
  }
 
  #logout-button {
@@ -103,13 +75,11 @@ code {
    top:10px;
    right:10px;
    color: white;
-   /* width: 80px; */
    text-align: center;
    font-size: 18px;
    border-radius: 25px;
    border: none;
    background: darkseagreen;
-   /* padding: 20px; */
    width: 100px;
    height: 50px;
  }
@@ -120,33 +90,25 @@ code {
   float:left;
   width: 48%;
   height: 48%;
-
   font-size: 30px;
-  
   background-color: white;
-  /* border-radius: 25px; */
   border: solid 0.3em;
   border-color:darkseagreen;
   border-width: 10px;
-  /* background-size: 500px; */
 }
 
 .pet-image {
   max-width: 50%;
   height: auto;
-  
 }
 
-/* #gif-container {
+#gif-container {
   float:left;
+}
 
-} */
-
-/* .giphy-embed {
-
+.giphy-embed {
   width: 480px;
   height: 270px;
-  
   text-align: horizontal;
   padding-right: 6px;
   padding-top: 20px;
@@ -154,15 +116,9 @@ code {
   margin-left: 4px;
   margin-top:20px;
   margin-bottom: 20px;
-} */
-
-/* .nav-bar {
-  float:right;
-} */
+}
 
 .health-tips {
-  /* position: relative;
-  bottom:0; */
   text-align: left;
 }
 
@@ -172,13 +128,8 @@ code {
 }
 
 .login-page {
-
-  
   height: 700px;
   background-size: 120%;
-  /* background-position-x:600px;
-  background-position-y: top; */
-  /* float: right; */
   background-repeat: no-repeat;
   background-image: url('./images/paw-heart.png');
   background-position-x: 550px;
