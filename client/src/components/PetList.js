@@ -30,7 +30,7 @@ function PetList({pets, selectPet, setPets }) {
             <>
            
            <p>
-               We're here to help you track of any changes in your pet's behavior, to keep them happy and healthy. Just add a new pet to get started!
+               We're here to help you track any changes in your pet's behavior, to keep them happy and healthy. Just add a new pet to get started!
            </p>
           
             </>

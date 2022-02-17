@@ -3,7 +3,7 @@ import HealthTips from '../components/HealthTips';
 import {useEffect} from 'react';
 
 
-function HomePage({selectPet, selectedPet, setSelectedPet, pets, setPets, user}) {
+function HomePage({selectPet, pets, setPets, user}) {
 
 
     useEffect(() => {

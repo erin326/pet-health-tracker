@@ -1,11 +1,7 @@
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-function NewPet(
-     {user,
-    //  name, type, age, sex, weight, healthIssue, petImage,
-    //   setAge, setHealthIssue, setName, setPetImage, setSex, setType, setWeight
-    }
-    ) {
+
+function NewPet() {
 
     const [name, setName] = useState('');
     const [type, setType] = useState('');
@@ -16,8 +12,9 @@ function NewPet(
     const [petImage, setPetImage] = useState(null)
     
    
-    // const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
+    
 
 
     function handleSubmitPet(e) {
@@ -32,30 +29,58 @@ function NewPet(
         formData.append('type_of_pet', type)
         formData.append('health_issues', healthIssue)
         formData.append('pet_image', petImage)
-    
-        fetch('/api/pets', {
+
+        if(petImage) {
+          fetch('/api/pets', {
             method: "POST",
-     
             body: formData
-            })
-        .then((r) => {
+          })
+          .then((r) => {
             if(r.ok) {
                navigate('/');
-              //  r.json().then((newPet) => console.log(newPet))
             }else {
                 r.json().then((error)=> {
-                    // setErrors(error.errors)
+                    setErrors(error.errors)
                     console.log(error)
                 });
             }
-        });
+          });
+        } else {
+          fetch('/api/pets', {
+            method: "POST",
+            headers: {
+              "Content-Type" : "application/json",
+            },
+    
+            body:
+              JSON.stringify({
+              name,
+              age,
+              weight,
+              sex, 
+              type_of_pet: type,
+              health_issues: healthIssue
+            })
+          })
+          .then((r) => {
+              if(r.ok) {
+                navigate('/');
+              }else {
+                  r.json().then((error)=> {
+                      setErrors(error.errors)
+                      console.log(error)
+                  });
+              }
+          });
+
+        }
+ 
     }
 
     return(
         <>
         <h2>Add a Pet</h2>
         <form
-        //  encType='multipart/form-data'
           onSubmit={handleSubmitPet}>
             <label>Name: </label>
             <input
@@ -102,7 +127,7 @@ function NewPet(
 
             <input
             type="file"
-            accept="image/*"
+            accept="image/*" 
             onChange={(e) => setPetImage(e.target.files[0])}
             ></input>
               
@@ -111,9 +136,9 @@ function NewPet(
               
         </form>
     
-        {/* {errors.map((error) => (
-                <li>{error}</li>
-            ))} */}
+        {errors.map((error) => (
+                <li key={error}>{error}</li>
+            ))}
 
         </>
     )
