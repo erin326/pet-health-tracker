@@ -1,5 +1,5 @@
 import { useEffect, useState} from 'react';
-import {List, Container} from 'semantic-ui-react';
+import {Container} from 'semantic-ui-react';
 import HealthTipCard from './HealthTipCard';
 
 function HealthTips() {

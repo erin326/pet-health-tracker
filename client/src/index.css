@@ -27,7 +27,7 @@ code {
 .title :link {
   border-radius: 25px;
   border: none;
-  background: #73AD21;
+  /* background: #73AD21; */
   /* color: yellow; */
   text-decoration: none;
   text-align: center;
@@ -39,8 +39,9 @@ code {
 }
 .title {
   color: white;
-  font-size: 70px;
+  font-size: 90px;
   background-color: darkseagreen;
+  text-align: center;
   /* top: 10px; */
   /* left:20px; */
   /* width:800px; */

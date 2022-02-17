@@ -1,8 +1,5 @@
 import { useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import {Card, Image } from 'semantic-ui-react';
-import EditPet from '../components/EditPet';
-
 function NewPet(
      {user,
     //  name, type, age, sex, weight, healthIssue, petImage,
@@ -19,7 +16,7 @@ function NewPet(
     const [petImage, setPetImage] = useState(null)
     
    
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const navigate = useNavigate();
 
 
@@ -44,9 +41,11 @@ function NewPet(
         .then((r) => {
             if(r.ok) {
                navigate('/');
+              //  r.json().then((newPet) => console.log(newPet))
             }else {
                 r.json().then((error)=> {
-                    setErrors(error.errors)
+                    // setErrors(error.errors)
+                    console.log(error)
                 });
             }
         });
@@ -108,24 +107,14 @@ function NewPet(
             ></input>
               
             <button type='submit'>Submit</button>
-            <p>{errors.map((error) => (
-                <li>{error}</li>
-            ))}
-                </p>
+          
+              
         </form>
     
-        <Card className='cards'>
-            <Card.Content>
+        {/* {errors.map((error) => (
+                <li>{error}</li>
+            ))} */}
 
-                <Card.Header>{name}</Card.Header>
-                <Image className='pet-image'  src={petImage}></Image>
-                <Card.Description>{age} year old {type} with {healthIssue}. Weighs {weight} lbs. Belongs to {user.username}</Card.Description>
-            </Card.Content>
-         
-        </Card>
-
-
-        
         </>
     )
 }

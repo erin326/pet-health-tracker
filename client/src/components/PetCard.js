@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {Card, Image, Icon } from 'semantic-ui-react';
+import {Card, Image} from 'semantic-ui-react';
 import {Link} from 'react-router-dom'
 import HealthLog from './HealthLog';
 
@@ -16,57 +16,6 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
 
     const [showLog, setShowLog] = useState(true)
 
-    // function handlePetUpdate(e) {
-
-    //     const formData = new FormData();
-       
-    //     formData.append('name', name)
-    //     formData.append('age', age)
-    //     formData.append('weight', weight)
-    //     formData.append('sex', sex)
-    //     formData.append('type_of_pet', type)
-    //     formData.append('health_issues', healthIssue)
-    //     formData.append('pet_image', petImage)
-    
-    //     fetch(`/api/pets/${id}`, {
-    //         method: "PATCH",
-     
-    //         body: formData
-    //         })
-    //         .then((r) => r.json())
-    //         .then((data) => onUpdatePet(data))
-    // }
-    // function handleEditClick() {
-    //     fetch(`/api/pets/${id}`, {
-    //       method: "PATCH",
-    //       body: JSON.stringify({
-    //         name,
-    //         sex,
-    //         type_of_pet: type,
-    //         age,
-    //         weight,
-    //         health_issues: healthIssue,
-    //         pet_image: petImage
-    //       })
-    //     })
-    //     .then((r) => r.json())
-    //     .then((updatedPet) => {
-    //         onUpdatePet(updatedPet)
-    //     });
-    // }
-
-//    function showThisPet(id) {
-//        fetch(`/api/pets/${id}`)
-//        .then((r) => r.json())
-//        .then((pet) => {
-//            console.log(pet)
-//         //    setShowLog(true)
-//        })   
-//    }
-
-
-  
-
     return( 
         <>
         <Card className='pet-cards'>
@@ -79,7 +28,7 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                     </span>
                     <br></br>
                     <span>{type}</span>
-                   
+                    <br></br>
                        <span>Age: {age}</span> 
                        <br></br>
                        <span>Weight: {weight} lbs</span>
@@ -102,7 +51,6 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                         {showLog ? <HealthLog id={id}/> : null}
                         </Card.Description>
                         
-                        {/* <HealthLog /> */}
             </Card.Content>
             
         </Card>

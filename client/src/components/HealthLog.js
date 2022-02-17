@@ -1,27 +1,12 @@
-import {useEffect, useState} from 'react';
-import FullCalendar, {formatData} from '@fullcalendar/react';
+import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from '@fullcalendar/interaction';
 
-import Event from './Event';
-
 
 function HealthLog({id}) {
-
-
-      // const renderEventContent = (eventInfo) => {
-      //   return (
-      //     <>
-      //       <b>{eventInfo.timeText}</b>
-      //       <i>{eventInfo.event.title}</i>
-      //     </>
-      //   )
-      // }
-   
    
      const handleDateSelect = (selectInfo) => {
-        // setShowEventForm(true);
         let title = prompt('Please enter a new title for your event')
         let calendarApi = selectInfo.view.calendar
     
@@ -29,22 +14,15 @@ function HealthLog({id}) {
     
         if (title) {
           calendarApi.addEvent({
-            // id: createEventId(),
             title,
             start: selectInfo.startStr,
             end: selectInfo.endStr
-            // allDay: selectInfo.allDay
           })
-          // setText(title);
-          // setStartTime(start);
-          // setEndTime(end);
-          // console.log(title)
 
           fetch("api/events", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
-    
             },
             body: JSON.stringify({
             
@@ -52,21 +30,13 @@ function HealthLog({id}) {
                 pet_id: id,
                 start: selectInfo.startStr,
                 end: selectInfo.endStr
-               
-                // start_time: start,
-                // end_time: end
-          
-    
             }),
-        })
-        .then((r) => r.json())
-        .then((data) => console.log(data))
+          })
+          .then((r) => r.json())
+          .then((data) => console.log(data))
         }
   
-        }
-
-       
-    
+      }
 
     const handleEventClick = (clickInfo) => {
       if(window.confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'?`)) {
@@ -91,13 +61,7 @@ function HealthLog({id}) {
             center: "title",
             right: "dayGridMonth,timeGridWeek,timeGridDay"
         }}
-        // customButtons={{
-        //     addEventButton: {
-        //         text: 'add event..'
-                 
-        // }}}
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        // dateClick={() => handleSubmitEvent}
         editable={true}
         selectable={true}
         selectMirror={true}
@@ -108,19 +72,12 @@ function HealthLog({id}) {
           textColor: 'black'
         
         }}
-        // eventMouseEnter={'click to delete'}
+      
         eventClick={handleEventClick}
     
-        
-        
         />
         </div>
-        
-    
-        
-        {/* <Event />  */}
 
-      
         </>
     )
 }

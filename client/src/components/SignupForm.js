@@ -24,12 +24,10 @@ function SignUpForm({onLogin}) {
             if (r.ok) {
                 r.json().then((user) => onLogin(user));
             }else{
-                r.json().then((error) => console.log(error))
+                r.json().then((error) => setErrors(error.errors))
             }
         });
-
     }
-
 
     return(
         <form onSubmit={handleSignupSubmit}>
@@ -58,10 +56,10 @@ function SignUpForm({onLogin}) {
             ></input>
             <br></br>
             <button type='submit'>Sign Up</button>
-            <p>{errors.map((error) => (
-                <li>{error}</li>
-            ))}
-                </p>
+
+            {errors ? errors.map((err) => (<p>{err}</p>)) 
+          : null}
+          
         </form>
     )
 }

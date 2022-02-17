@@ -1,5 +1,5 @@
-import { useState, useEffect} from 'react'
-import {  Routes, Route, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
 import HomePage from '../pages/HomePage';
 import Login from '../pages/Login';
@@ -7,22 +7,18 @@ import NewPet from '../pages/NewPet';
 import EditPet from './EditPet';
 import PetCard from './PetCard';
 import HealthLog from './HealthLog';
-import Event from './Event';
-// import HealthTips from './HealthTips';
-// import PetList from './PetList';
+
+
 
 function App() {
 
    const [user, setUser] = useState(null);
-   
    const [pets, setPets] = useState([]);
     
    const [selectedPet, setSelectedPet] = useState({});
    const [errors, setErrors] = useState([]);
-
    const navigate = useNavigate();
   
-    
  
    function selectPet(petObj) {
     setSelectedPet(petObj)
@@ -55,22 +51,13 @@ function App() {
       console.log(updatedPetList);
   })
       }else {
-          r.json().then((error) => console.log(error))
+          r.json().then((error) => setErrors(error.errors))
+          
       }
   })
 
-
-  // console.log(petObj)
 }
-   
-  //  const [name, setName] = useState('');
-  //  const [type, setType] = useState('');
-  //  const [age, setAge] = useState('');
-  //  const [sex, setSex] = useState('');
-  //  const [weight, setWeight] = useState('');
-  //  const [healthIssue, setHealthIssue] = useState('');
-  //  const [petImage, setPetImage] = useState(null)
-
+ 
 
    useEffect(() => {
         fetch('/api/me').then((r) => {
@@ -94,22 +81,17 @@ function App() {
             </Route>
             <Route exact path='/:id' element={<PetCard />}></Route>
             <Route exact path='/edit/:id' element={<EditPet selectPet={selectPet} selectedPet={selectedPet} setSelectedPet={setSelectedPet} onPetChange={handlePetChange}
-            // name={name} setName={setName} 
-            // type={type} setType={setType} 
-            // age={age} setAge={setAge}
-            // sex={sex} setSex={setSex} 
-            // weight={weight} setWeight={setWeight} 
-            // healthIssue={healthIssue} setHealthIssue={setHealthIssue} 
-            // petImage={petImage} setPetImage={setPetImage}
+        
             />}
             ></Route>
             <Route exact path='health-log/:id' element={<HealthLog pets={pets} selectedPet={selectedPet} setSelectedPet={setSelectedPet} />}></Route>
-            <Route exact path='event/:id' element={<Event/>}>
-            </Route>
-            <Route exact path='/' element={<HomePage  selectPet={selectPet} pets={pets} setPets={setPets} user={user}/>}>
+            <Route exact path='/' element={<HomePage  selectPet={selectPet} pets={pets} setPets={setPets} user={user} setUser={setUser}/>}>
             </Route>
          
           </Routes>
+
+          {errors ? errors.map((err) => (<p>{err}</p>)) 
+          : null}
 
         </main>
    

@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
-import PetCard from "./PetCard";
-// import {withRouter} from 'react-router-dom'
+
 
 function EditPet(
-  {user, selectedPet, onPetChange, errors, handleImageChange
-    //  id,
-    //  name, type, age, sex, weight, healthIssue, petImage, setAge, setHealthIssue, setName, setPetImage, setSex, setType, setWeight
-    }) {
-
-      // const [errors, setErrors] = useState([])
-
+  {selectedPet, onPetChange, errors}) {
 
     const [name, setName] = useState('');
     const [type, setType] = useState('');
@@ -17,10 +10,8 @@ function EditPet(
     const [sex, setSex] = useState('');
     const [weight, setWeight] = useState('');
     const [healthIssue, setHealthIssue] = useState('');
-    // const [petImage, setPetImage] = useState(null)
-
     const [id, setPetId] = useState(0);
-    // const [imageId, setImageId] = useState(0);
+   
 
     useEffect(() => {
       setPetId(selectedPet.id)
@@ -30,9 +21,9 @@ function EditPet(
       setType(selectedPet.type_of_pet)
       setSex(selectedPet.sex)
       setHealthIssue(selectedPet.health_issues)
-      // setPetImage(selectedPet.pet_image)
-
+     
     }, [selectedPet]);
+
 
     function handleSubmit(e) {
       e.preventDefault();
@@ -44,35 +35,15 @@ function EditPet(
         health_issues: healthIssue,
         sex: sex,
         type_of_pet: type, 
-        
-        // pet_image: petImage
       }
-
       onPetChange(updatedPet)
-      
-      // handlePetChange()
     }
 
-    // function handleImageChange(e) {
-    //   if(e.target.files[0]) this.setState({newPhoto: e.target.files[0]});
-    // }
-
-    // function handleSubmitPhoto() {
-    //   fetch(`/api/pets/${id}`)
-    // }
- 
-    //     const [errors, setErrors] = useState([])
-    // const {id, name, sex, type, age, weight} = pet;
-
-    // const petImage = pet.pet_image;
-    // const healthIssue = pet.health_issues
+    
     return(
         <>
-        
-        
         <form 
-        // encType="multipart/form-data"
-         onSubmit={handleSubmit}>
+            onSubmit={handleSubmit}>
             <label>Name: </label>
             <input
             type="text"
@@ -116,13 +87,11 @@ function EditPet(
             onChange={(e) => setHealthIssue( e.target.value)}
             ></input>
 
-         
-              
             <button type='submit'>Submit</button>
-            {/* <p>{errors.map((error) => (
-                <li>{error}</li>
-            ))}
-                </p> */}
+            {errors ? errors.map((err) => (
+              <p>{err}</p>
+            )) : null}
+          
         </form>
 
         {/* <form onSubmit={handleImageChange}>
@@ -132,7 +101,6 @@ function EditPet(
             onChange={(e) => setPetImage(e.target.files[0])}
             ></input>
         </form> */}
-
 
         </>
     )

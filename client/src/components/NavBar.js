@@ -14,8 +14,9 @@ function NavBar({user, setUser}) {
     }
     return (
         <>
+         <h3>Welcome, {user.username}!</h3>
         <h1 className='title'>
-            <Link to='/'><h2>Healthy Pets!</h2></Link>
+            <Link to='/'>Healthy Pets!</Link>
         </h1>
         <nav>
             <button id='logout-button' onClick={handleLogout}>Logout</button>
