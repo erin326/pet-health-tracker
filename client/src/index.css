@@ -91,7 +91,7 @@ code {
   width: 48%;
   height: 48%;
   font-size: 30px;
-  background-color: white;
+  /* background-color: white; */
   border: solid 0.3em;
   border-color:darkseagreen;
   border-width: 10px;
@@ -120,12 +120,12 @@ code {
 }
 
 .health-tips {
-  text-align: left;
+  float: left;
 }
 
 #calendar {
   font-size: 18px;
-  background-color: white;
+  
 }
 
 .login-page {
