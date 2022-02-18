@@ -54,7 +54,7 @@ function HealthLog({id}) {
         <>
         <div id="calendar"> 
         <FullCalendar 
-        initialView="timeGridWeek"
+        initialView="timeGridDay"
 
         headerToolbar={{
             left: "prev,next,today,addEventButton",
