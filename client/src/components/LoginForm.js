@@ -26,7 +26,7 @@ function LoginForm({onLogin}) {
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
+        <form className= "text" onSubmit={handleSubmit}>
             <label>Username</label>
             <input
             type='text'
@@ -42,7 +42,7 @@ function LoginForm({onLogin}) {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             ></input>
-            <button type='submit'>Login</button>
+            <button  className="button" type='submit'>Login</button>
             <p>{errors.map((error) => (
                 <li>{error}</li>
             ))}</p>

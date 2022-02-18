@@ -80,7 +80,7 @@ function NewPet() {
     return(
         <>
         <h2>Add a Pet</h2>
-        <form
+        <form className="pet-info-form"
           onSubmit={handleSubmitPet}>
             <label>Name: </label>
             <input
@@ -88,35 +88,35 @@ function NewPet() {
             id="pet-name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            ></input>
+            ></input> <br></br>
             <label>Type: </label>
             <input
             type="text"
             id="pet-type"
             value={type}
             onChange={(e) => setType( e.target.value)}
-            ></input>
+            ></input> <br></br>
               <label>Sex: </label>
             <input
             type="text"
             id="pet-sex"
             value={sex}
             onChange={(e) => setSex( e.target.value)}
-            ></input>
+            ></input> <br></br>
               <label>Age: </label>
             <input
             type="text"
             id="pet-age"
             value={age}
             onChange={(e) => setAge(e.target.value)}
-            ></input>
+            ></input> <br></br>
               <label>Weight: </label>
             <input
             type="text"
             id="pet-weight"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
-            ></input>
+            ></input> <br></br>
               <label>Health Issues: </label>
             <input
             type="text"
@@ -124,14 +124,14 @@ function NewPet() {
             value={healthIssue}
             onChange={(e) => setHealthIssue( e.target.value)}
             ></input>
-
-            <input
+            <br></br>
+            <input id="choose-file"
             type="file"
             accept="image/*" 
             onChange={(e) => setPetImage(e.target.files[0])}
             ></input>
               
-            <button type='submit'>Submit</button>
+            <button className="button" type='submit'>Submit</button>
           
               
         </form>

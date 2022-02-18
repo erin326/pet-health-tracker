@@ -42,15 +42,16 @@ function EditPet(
     
     return(
         <>
-        <form 
+        <form className="pet-info-form"
             onSubmit={handleSubmit}>
             <label>Name: </label>
-            <input
+            <input className='pet-input'
             type="text"
             id="pet-name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             ></input>
+            <br></br>
             <label>Type: </label>
             <input
             type="text"
@@ -58,6 +59,7 @@ function EditPet(
             value={type}
             onChange={(e) => setType( e.target.value)}
             ></input>
+            <br></br>
               <label>Sex: </label>
             <input
             type="text"
@@ -65,6 +67,7 @@ function EditPet(
             value={sex}
             onChange={(e) => setSex( e.target.value)}
             ></input>
+            <br></br>
               <label>Age: </label>
             <input
             type="text"
@@ -72,6 +75,7 @@ function EditPet(
             value={age}
             onChange={(e) => setAge(e.target.value)}
             ></input>
+            <br></br>
               <label>Weight: </label>
             <input
             type="text"
@@ -79,6 +83,7 @@ function EditPet(
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
             ></input>
+            <br></br>
               <label>Health Issues: </label>
             <input
             type="text"
@@ -86,8 +91,9 @@ function EditPet(
             value={healthIssue}
             onChange={(e) => setHealthIssue( e.target.value)}
             ></input>
+            <br></br>
 
-            <button type='submit'>Submit</button>
+            <button className="button" type='submit'>Submit</button>
             {errors ? errors.map((err) => (
               <p>{err}</p>
             )) : null}

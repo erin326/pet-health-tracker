@@ -5,11 +5,11 @@ body {
   background: #63961c;
   color: white;
   height: 700px;
-  background-size: 100%;
+  background-size: 90%;
   background-repeat: no-repeat;
   background-image: url('./images/paw-heart.png');
-  background-position-x: 550px;
-  background-position-y: 160px;
+  background-position-x: 575px;
+  background-position-y: 260px;
 }
 
 code {
@@ -29,38 +29,36 @@ code {
 }
 
 .title {
+
   border-radius: 25px;
   border: none;
   color:black;
   font-size: 90px;
   text-align: center;
   background-color:yellow;
+  padding:13px;
+ 
 }
 
- .pet-button :link  {
+ .button :link  {
    text-decoration: none;
    color: white;
    background-color: blueviolet;
-   font-size: 22px;
+   font-size: 20px;
  }
 
- .pet-button {
-  /* padding: 7px; */
+ .button {
   border-radius: 25px;
   border-color: blueviolet;
   color: white;
   background-color:blueviolet;
-  font-size: 22px;
+  font-size: 20px;
   position: relative;
+  padding: 7px;
  }
 
- .pet-button :visited {
+ .button :visited {
    color:white;
- }
-
- #new-pet-button :link {
-   text-decoration: none;
-   color: white;
  }
 
  #new-pet-button :visited {
@@ -68,6 +66,9 @@ code {
  }
 
  #new-pet-button {
+  text-decoration: none;
+  padding: 20px;
+  color: white;
   position: absolute;
   top:10px;
   right:120px;
@@ -77,8 +78,8 @@ code {
   border-radius: 25px;
   border: none;
   background-color: blue;
-  width: 110px;
-  height: 50px;
+  width: 130px;
+  /* height: 50px; */
  }
 
  #logout-button {
@@ -92,7 +93,19 @@ code {
    border: none;
    background-color: orangered;
    width: 100px;
-   height: 50px;
+   height: 60px;
+ }
+
+ #edit-button {
+  text-decoration: none;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 25px;
+  border: none;
+  background-color: blue;
+
  }
 
 
@@ -117,7 +130,30 @@ code {
   border: solid 0.3em;
   border-width: 5px;
   border-radius: 25px;
- 
+}
+
+.pet-info-form {
+  background-color:mediumblue;
+  border-radius: 25px;
+  width:600px;
+  padding:20px;
+  text-align: left;
+  position: absolute;
+  bottom: 20px;
+  top:265px
+
+
+}
+
+input {
+  padding: 10px;
+  margin: 10px;
+  
+}
+
+#choose-file {
+  font-size: 18px;
+  margin-bottom:35px;
 }
 
 /* #pet-info {
@@ -144,11 +180,25 @@ code {
 
 .health-tips {
   float: left;
+  background-color: black;
+  border-radius: 25px;
+  padding:20px;
+  margin-bottom: 20px;
+  font-size: 20px;
 }
 
 #calendar {
   font-size: 18px;
   
+}
+
+.text {
+  background-color:black;
+  border-radius: 25px;
+  text-align: center;
+  padding:22px;
+  font-size: 25px;
+
 }
 
 /* .login-page {
@@ -162,5 +212,6 @@ code {
 
 #welcome-nav {
   color:white;
+  font-size: 30px;
 }
 

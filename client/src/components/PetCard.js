@@ -40,17 +40,17 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                        <br></br>     
                         </Card.Description>
                   
-                        <button className='pet-button'>
-                        <Link onClick={() => selectPet(pet)} to={'/edit/'+ id}>Edit Info</Link>
+                        <button style={{'background-color': "transparent", 'border': 'none'}} >
+                        <Link  id="edit-button" onClick={() => selectPet(pet)} to={'/edit/'+ id}>Edit Info</Link>
 
                         </button>
                            
-                       <button className='pet-button' 
+                       <button className="button" 
                         onClick={() => onDeletePet(id)}
                         >Remove</button>
 
                         <button
-                        className='pet-button'
+                        className="button"
                         onClick={() => setShowLog(!showLog)}>show/hide log</button>
 
                         <br></br>

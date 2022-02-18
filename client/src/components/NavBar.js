@@ -15,18 +15,15 @@ function NavBar({user, setUser}) {
     return (
         <>
          <h3 id="welcome-nav">Welcome, {user.username}!</h3>
+
         <h1 className='title'>
             <Link to='/'>Healthy Pets!</Link>
         </h1>
         <nav>
             <button id='logout-button' onClick={handleLogout}>Logout</button>
         </nav>
-        <nav>
-            <button id='new-pet-button'>
-                <Link to='/new'>NewPet</Link>
-            </button>
-        </nav>
-        
+
+         <Link  id='new-pet-button' to='/new'>NewPet</Link>
         </>
     )
 

@@ -55,7 +55,7 @@ function SignUpForm({onLogin}) {
             onChange={(e)=> setPasswordConfirmation(e.target.value)}
             ></input>
             <br></br>
-            <button type='submit'>Sign Up</button>
+            <button className="button" type='submit'>Sign Up</button>
 
             {errors ? errors.map((err) => (<p>{err}</p>)) 
           : null}
