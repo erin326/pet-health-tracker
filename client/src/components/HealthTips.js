@@ -21,7 +21,7 @@ function HealthTips() {
         <>
         <h3>
         <Container className='health-tips'>
-        <h2>Health Tips for Your Furry Friend</h2>
+        <h2>Health Tips for your Furry Friend</h2>
         <h4>
         {randomTip}
         </h4>

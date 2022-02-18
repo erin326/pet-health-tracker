@@ -14,7 +14,7 @@ function NavBar({user, setUser}) {
     }
     return (
         <>
-         <h3 style={{color:"darkgreen"}}>Welcome, {user.username}!</h3>
+         <h3 id="welcome-nav">Welcome, {user.username}!</h3>
         <h1 className='title'>
             <Link to='/'>Healthy Pets!</Link>
         </h1>
