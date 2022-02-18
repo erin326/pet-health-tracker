@@ -20,7 +20,7 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
         <>
         <Card className='pet-cards'>
             <Card.Content>
-                <h2>{name}</h2>
+                <h1>{name}</h1>
                 {petImage ? 
                  <Image className='pet-image' src={petImage} alt="my pet"></Image> 
                  : null}
@@ -37,6 +37,8 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                        <br></br>
                        <span>Health issues: {healthIssue}</span>
                        <br></br>
+                       <br></br>     
+                        </Card.Description>
                   
                         <button className='pet-button'>
                         <Link onClick={() => selectPet(pet)} to={'/edit/'+ id}>Edit Info</Link>
@@ -50,8 +52,12 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                         <button
                         className='pet-button'
                         onClick={() => setShowLog(!showLog)}>show/hide log</button>
+
+                        <br></br>
+                        <br></br>
+
                         {showLog ? <HealthLog id={id}/> : null}
-                        </Card.Description>
+                   
                         
             </Card.Content>
             

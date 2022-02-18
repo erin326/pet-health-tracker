@@ -2,8 +2,14 @@ body {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 20px;
   margin-top: 10px;
-  background: #73AD21;
+  background: #63961c;
   color: white;
+  height: 700px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url('./images/paw-heart.png');
+  background-position-x: 550px;
+  background-position-y: 160px;
 }
 
 code {
@@ -13,34 +19,39 @@ code {
 
 
 .title :link {
-  border-radius: 25px;
-  border: none;
+ 
   text-decoration: none;
   text-align: center;
 }
 
 .title :visited {
-  color: yellow;
+  color: black;
 }
 
 .title {
-  color:yellow;
+  border-radius: 25px;
+  border: none;
+  color:black;
   font-size: 90px;
   text-align: center;
+  background-color:yellow;
 }
 
  .pet-button :link  {
    text-decoration: none;
    color: white;
-   background-color:#73AD21;
+   background-color: blueviolet;
    font-size: 22px;
-   
  }
 
  .pet-button {
+  /* padding: 7px; */
+  border-radius: 25px;
+  border-color: blueviolet;
   color: white;
-  background-color:#73AD21;
+  background-color:blueviolet;
   font-size: 22px;
+  position: relative;
  }
 
  .pet-button :visited {
@@ -65,7 +76,7 @@ code {
   font-size: 18px;
   border-radius: 25px;
   border: none;
-  background: darkseagreen;
+  background-color: blue;
   width: 110px;
   height: 50px;
  }
@@ -79,7 +90,7 @@ code {
    font-size: 18px;
    border-radius: 25px;
    border: none;
-   background: darkseagreen;
+   background-color: orangered;
    width: 100px;
    height: 50px;
  }
@@ -91,16 +102,28 @@ code {
   width: 48%;
   height: 48%;
   font-size: 30px;
-  /* background-color: white; */
+  background-color:#73AD21;
+  border-radius: 25px;
   border: solid 0.3em;
-  border-color:darkseagreen;
+  border-color:yellow;
   border-width: 10px;
 }
 
 .pet-image {
-  max-width: 50%;
-  height: auto;
+  max-width: 460px;
+  max-height: 460px;
+  position: relative;
+  border-color: darkorange;
+  border: solid 0.3em;
+  border-width: 5px;
+  border-radius: 25px;
+ 
 }
+
+/* #pet-info {
+  float:left;
+  font-size: 22px;
+} */
 
 #gif-container {
   float:left;
@@ -128,16 +151,16 @@ code {
   
 }
 
-.login-page {
+/* .login-page {
   height: 700px;
   background-size: 120%;
   background-repeat: no-repeat;
   background-image: url('./images/paw-heart.png');
   background-position-x: 550px;
   background-position-y: 160px;
-}
+} */
 
 #welcome-nav {
-  color:wheat;
+  color:white;
 }
 
