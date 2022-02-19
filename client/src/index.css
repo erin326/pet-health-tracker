@@ -1,8 +1,6 @@
 body {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 20px;
-  /* margin-bottom: 40px; */
-  /* margin-top: 10px; */
   background: #63961c;
   color: white;
   height: 700px;
@@ -142,9 +140,6 @@ code {
   margin: auto;
   text-align: left;
   position: absolute;
-  /* bottom: 50px; */
-  /* top:265px */
-
 
 }
 
@@ -163,7 +158,6 @@ input {
 #gif-container {
   float:left;
   text-align: center;
-  /* margin: 100px; */
   
 }
 
@@ -171,13 +165,6 @@ input {
   width: 480px;
   height: 270px;
   padding: 5px;
-  /* text-align: horizontal; */
-  /* padding-right: 6px;
-  padding-top: 20px;
-  padding-bottom: 20px; */
-  /* margin-left: 4px;
-  margin-top:20px;
-  margin-bottom: 20px; */
 }
 
 .health-tips {
