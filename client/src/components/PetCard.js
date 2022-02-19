@@ -25,17 +25,15 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
                  <Image id='pet-image' src={petImage} alt="my pet"></Image> 
                  : null}
                      <Card.Description id="pet-info">    
-                    <span>
-                    {sex} 
-                    </span>
-                    <br></br>
-                    <span>{type}</span>
-                    <br></br>
-                       <span>Age: {age}</span> 
+                        {type ? <span>Type: {type}</span> : null}
+                        <br></br>
+                        {sex ? <span> Sex: {sex}</span> : null}
+                        <br></br>
+                        {age ? <span>Age: {age}</span> : null}
+                        <br></br>
+                        {weight ? <span>Weight: {weight} lbs</span>: null}
                        <br></br>
-                       <span>Weight: {weight} lbs</span>
-                       <br></br>
-                       <span>Health issues: {healthIssue}</span>
+                       {healthIssue ? <span>Health issues: {healthIssue}</span> : null}
                        <br></br>
                        <br></br>     
                         </Card.Description>
