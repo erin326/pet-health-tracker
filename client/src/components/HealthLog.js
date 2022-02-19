@@ -57,7 +57,7 @@ function HealthLog({id}) {
             center: "title",
             right: "dayGridMonth,timeGridWeek,timeGridDay"
         }}
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+        plugins={[dayGrgidPlugin, timeGridPlugin, interactionPlugin]}
         editable={true}
         selectable={true}
         select={handleDateSelect}
