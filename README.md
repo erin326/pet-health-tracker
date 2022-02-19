@@ -79,8 +79,8 @@ Here is a link from this file containing further details of the license: http://
 
 
 ###Credits
-GIFs from GIPHY 
-https://giphy.com/
+-GIFs from GIPHY: https://giphy.com/
+-image from  Pixabay: https://pixabay.com/
 
 
 

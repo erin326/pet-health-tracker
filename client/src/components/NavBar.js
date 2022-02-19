@@ -24,9 +24,10 @@ function NavBar({user, setUser}) {
         </nav>
 
          <Link  id='new-pet-button' to='/new'>NewPet</Link>
+         
         </>
     )
 
 }
 
-export default NavBar
+export default NavBar;

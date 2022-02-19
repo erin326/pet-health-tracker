@@ -68,7 +68,6 @@ function NewPet() {
               }else {
                   r.json().then((error)=> {
                       setErrors(error.errors)
-                      console.log(error)
                   });
               }
           });
@@ -79,9 +78,12 @@ function NewPet() {
 
     return(
         <>
-        <h2>Add a Pet</h2>
         <form className="pet-info-form"
           onSubmit={handleSubmitPet}>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+            ))}
+            <br></br>
             <label>Name: </label>
             <input
             type="text"
@@ -132,13 +134,11 @@ function NewPet() {
             ></input>
               
             <button className="button" type='submit'>Submit</button>
-          
+            
               
         </form>
     
-        {errors.map((error) => (
-                <li key={error}>{error}</li>
-            ))}
+      
 
         </>
     )

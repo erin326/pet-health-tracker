@@ -22,7 +22,7 @@ function PetCard({pet, selectPet, onDeletePet, onUpdatePet }) {
             <Card.Content>
                 <h1>{name}</h1>
                 {petImage ? 
-                 <Image className='pet-image' src={petImage} alt="my pet"></Image> 
+                 <Image id='pet-image' src={petImage} alt="my pet"></Image> 
                  : null}
                      <Card.Description id="pet-info">    
                     <span>

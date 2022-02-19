@@ -1,7 +1,8 @@
 body {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   margin: 20px;
-  margin-top: 10px;
+  /* margin-bottom: 40px; */
+  /* margin-top: 10px; */
   background: #63961c;
   color: white;
   height: 700px;
@@ -79,8 +80,7 @@ code {
   border: none;
   background-color: blue;
   width: 130px;
-  /* height: 50px; */
- }
+  }
 
  #logout-button {
    position: absolute;
@@ -111,36 +111,39 @@ code {
 
 .pet-cards {
   text-align: center;
-  float:left;
-  width: 48%;
-  height: 48%;
+  margin:35px;
+  margin-top: 5px;
+  float: left;
+  width: fit-content;
+  height: fit-content;
   font-size: 30px;
   background-color:#73AD21;
   border-radius: 25px;
   border: solid 0.3em;
   border-color:yellow;
   border-width: 10px;
+
 }
 
-.pet-image {
+#pet-image {
   max-width: 460px;
   max-height: 460px;
   position: relative;
-  border-color: darkorange;
   border: solid 0.3em;
-  border-width: 5px;
-  border-radius: 25px;
+  border-width: 5px; 
 }
 
 .pet-info-form {
   background-color:mediumblue;
   border-radius: 25px;
-  width:600px;
-  padding:20px;
+  width:fit-content;
+  height: fit-content;
+  padding:40px;
+  margin: auto;
   text-align: left;
   position: absolute;
-  bottom: 20px;
-  top:265px
+  /* bottom: 50px; */
+  /* top:265px */
 
 
 }
@@ -156,26 +159,25 @@ input {
   margin-bottom:35px;
 }
 
-/* #pet-info {
-  float:left;
-  font-size: 22px;
-} */
 
 #gif-container {
   float:left;
+  text-align: center;
+  /* margin: 100px; */
   
 }
 
 .giphy-embed {
   width: 480px;
   height: 270px;
-  text-align: horizontal;
-  padding-right: 6px;
+  padding: 5px;
+  /* text-align: horizontal; */
+  /* padding-right: 6px;
   padding-top: 20px;
-  padding-bottom: 20px;
-  margin-left: 4px;
+  padding-bottom: 20px; */
+  /* margin-left: 4px;
   margin-top:20px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
 }
 
 .health-tips {
@@ -183,7 +185,8 @@ input {
   background-color: black;
   border-radius: 25px;
   padding:20px;
-  margin-bottom: 20px;
+  margin-bottom:20px;
+  margin-top: 10px;
   font-size: 20px;
 }
 
@@ -201,17 +204,15 @@ input {
 
 }
 
-/* .login-page {
-  height: 700px;
-  background-size: 120%;
-  background-repeat: no-repeat;
-  background-image: url('./images/paw-heart.png');
-  background-position-x: 550px;
-  background-position-y: 160px;
-} */
-
 #welcome-nav {
   color:white;
   font-size: 30px;
+  width: fit-content;
 }
+
+#gif-link {
+  background-color: #63961c;
+}
+
+
 
