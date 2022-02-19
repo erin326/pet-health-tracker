@@ -5,14 +5,10 @@ Rails.application.routes.draw do
     resources :pets, only: [:index, :create, :destroy, :update, :show]
     resources :events, only: [:index, :create, :show, :destroy]
 
-    # resources :photos, only: [:update]
-
     post '/signup', to: 'users#create'
     get '/me', to: 'users#show'
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
-
-  
 
   end
   # Routing logic: fallback requests for React Router.

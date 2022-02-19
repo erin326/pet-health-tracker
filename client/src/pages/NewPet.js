@@ -116,7 +116,7 @@ function NewPet() {
             id="pet-weight"
             value={weight}
             onChange={(e) => setWeight(e.target.value)}
-            ></input> <br></br>
+            ></input>lbs <br></br>
               <label>Health Issues: </label>
             <input
             type="text"

@@ -1,4 +1,93 @@
-# Project Template: React/Rails API
+#Healthy Pets!
+
+Link to published website: 
+https://healthy-pets.herokuapp.com/
+
+
+##Introduction 
+
+The Healthy Pets! website is built for loving pet owners. It is meant to encourage mindfulness of your pet's health and behavioral changes. Providing a calendar for each pet enables you to keep a detailed log of your pet's habits and illness symptoms. 
+
+The app was inspired by my own love for my two cats, Simon and Francis. I noticed Francis was coughing and sneezing occasionally. I thought it could be reactionary to some environmental factors, but I noticed the coughing was happening more frequently. So I came up with the idea to log the time and day of his symptoms in a calendar, to keep better track of what's going on with him.
+
+We all live busy lives and sometimes these things can go unnoticed. Healthy Pets! provides a fun little tool to keep our pets safer.
+
+
+##Overview
+
+Healthy Pets! is built with a React frontend and a Rails API. It uses PostgreSQL for its database, and is deployed with Heroku. 
+
+The code is available on GitHub, at: https://github.com/erin326/pet-health-tracker
+
+To contribute to this project, clone 
+https://github.com/erin326/pet-health-tracker.git
+to your local environment.
+
+To run locally, use 
+```sh 
+heroku local -f Procfile.dev`
+```
+or
+
+```sh 
+rails s
+npm start --prefix client
+```
+
+To start the postgreSQL database, use 
+```sh
+sudo service postgresql start
+```
+(For WSL Ubuntu users)
+
+The deployed website is available at: https://healthy-pets.herokuapp.com/
+
+
+##Environment
+
+-Ruby version: 2.7.5
+-Node version: 16x
+-PostgreSQL version: 12.9 (Ubuntu)
+-Heroku CLI: 7.59.2 linux64
+-Bundler version: 2.2.32
+-Rails version: 6.1.3.2
+
+
+##Dependencies
+
+-react-router-dom: ^6.0.
+-Uses FullCalendar for pet calendars.
+-Uses ActiveStorage for storing pet images.
+-Full list of dependencies, gems and packages can be found in the `client/package-lock.json` and `Gemfile.lock` files. 
+
+
+##Scripts
+
+```sh
+  "scripts": {
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "clean": "rm -rf public",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  }
+  ```
+
+##License 
+
+Full license can be found in the `LICENSE.md` file. 
+Here is a link from this file containing further details of the license: http://learn.co/content-license
+
+
+###Credits
+GIFs from GIPHY 
+https://giphy.com/
+
+
+
+
+
+
+<!-- # Project Template: React/Rails API
 
 ## Description
 
@@ -324,4 +413,4 @@ For additional support, check out these guides on Heroku:
 
 [postgres downloads page]: https://postgresapp.com/downloads.html
 [heroku rails deploying guide]: https://devcenter.heroku.com/articles/getting-started-with-rails6
-[troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting
+[troubleshooting guide on heroku]: https://devcenter.heroku.com/articles/getting-started-with-rails6#troubleshooting -->

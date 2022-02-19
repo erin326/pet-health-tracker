@@ -25,17 +25,13 @@ function HealthLog({id}) {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-            
                 title: title,
                 pet_id: id,
                 start: selectInfo.startStr,
                 end: selectInfo.endStr
             }),
           })
-          .then((r) => r.json())
-          .then((data) => console.log(data))
         }
-  
       }
 
     const handleEventClick = (clickInfo) => {
@@ -64,20 +60,15 @@ function HealthLog({id}) {
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         editable={true}
         selectable={true}
-        selectMirror={true}
         select={handleDateSelect}
         events={ {
           url: `api/pets/${id}`,
           color: 'white',
           textColor: 'black'
-        
         }}
-      
         eventClick={handleEventClick}
-    
         />
         </div>
-
         </>
     )
 }

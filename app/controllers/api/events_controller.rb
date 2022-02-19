@@ -7,18 +7,8 @@ class Api::EventsController < ApplicationController
     end
 
     def create
-        
         event = Event.create(event_params)
-        
-        # pet.events << event 
-
-        
-          render json: event, 
-        #   serializer: EventSerializer,
-           status: :created 
-        # else 
-        #     render json: {errors: event.errors.full_messages}, status: :unprocessable_entity
-        # end
+        render json: event, status: :created 
     end
 
     def show 
